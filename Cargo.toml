@@ -19,10 +19,12 @@ std = ["parity-wasm/std"]
 core = ["hashbrown", "libm"]
 
 [dependencies]
-parity-wasm = { version = "0.31", default-features = false }
+# parity-wasm = { git = "https://github.com/enigmampc/parity-wasm.git", branch = "enigma", default-features = false }
+parity-wasm = { path = "../parity-wasm", default-features = false }
 hashbrown = { version = "0.1.8", optional = true }
 memory_units = "0.3.0"
 libm = { version = "0.1.2", optional = true }
+
 
 [dev-dependencies]
 assert_matches = "1.1"
