@@ -1,5 +1,9 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 #[cfg(not(feature = "std"))]
 use hashbrown::HashMap;

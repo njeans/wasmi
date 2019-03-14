@@ -1,7 +1,11 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
 use parity_wasm::elements::{Local, ValueType};
 use validation::Error;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 /// Locals are the concatenation of a slice of function parameters
 /// with function declared local variables.

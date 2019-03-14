@@ -1,6 +1,7 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
-use alloc::rc::Rc;
+use std::rc::Rc;
 use core::cell::RefCell;
 use core::fmt;
 use Trap;
@@ -9,6 +10,9 @@ use Trap;
 use hashbrown::HashMap;
 #[cfg(feature = "std")]
 use std::collections::HashMap;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 use common::{DEFAULT_MEMORY_INDEX, DEFAULT_TABLE_INDEX};
 use core::cell::Ref;

@@ -1,4 +1,4 @@
-use alloc::rc::Rc;
+use std::rc::Rc;
 use core::cell::Cell;
 use parity_wasm::elements::ValueType as EValueType;
 use types::ValueType;

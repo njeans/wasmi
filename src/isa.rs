@@ -68,7 +68,11 @@
 //!
 
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 /// Should we keep a value before "discarding" a stack frame?
 ///

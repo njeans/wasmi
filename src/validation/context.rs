@@ -1,5 +1,10 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
+
 use parity_wasm::elements::{
     BlockType, FunctionType, GlobalType, MemoryType, TableType, ValueType,
 };

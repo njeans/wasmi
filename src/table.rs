@@ -1,6 +1,11 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
-use alloc::rc::Rc;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
+
+use std::rc::Rc;
 use core::cell::RefCell;
 use core::fmt;
 use core::u32;

@@ -1,6 +1,7 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
-use alloc::rc::Rc;
+use std::rc::Rc;
 use core::cell::{Cell, RefCell};
 use core::cmp;
 use core::fmt;
@@ -10,6 +11,9 @@ use memory_units::{Bytes, Pages, RoundUpTo};
 use parity_wasm::elements::ResizableLimits;
 use value::LittleEndianConvert;
 use Error;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 /// Size of a page of [linear memory][`MemoryInstance`] - 64KiB.
 ///

@@ -1,8 +1,12 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
 use core::fmt;
 #[cfg(feature = "std")]
 use std::error;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 #[cfg(not(feature = "std"))]
 use hashbrown::HashSet;

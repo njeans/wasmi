@@ -1,5 +1,8 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 use common::{DEFAULT_MEMORY_INDEX, DEFAULT_TABLE_INDEX};
 use core::fmt;
 use core::ops;

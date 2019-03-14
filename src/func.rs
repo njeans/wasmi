@@ -1,6 +1,11 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
-use alloc::rc::{Rc, Weak};
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
+
+use std::rc::{Rc, Weak};
 use core::fmt;
 use host::Externals;
 use isa;

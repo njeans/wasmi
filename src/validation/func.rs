@@ -1,4 +1,5 @@
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
 use common::{DEFAULT_MEMORY_INDEX, DEFAULT_TABLE_INDEX};
 use core::u32;
@@ -7,6 +8,9 @@ use validation::context::ModuleContext;
 
 use validation::util::Locals;
 use validation::Error;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
 
 use common::stack::StackWithLimit;
 use isa;

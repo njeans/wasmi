@@ -95,7 +95,8 @@
 //! ```
 
 #![warn(missing_docs)]
-#![cfg_attr(not(feature = "std"), no_std)]
+// #![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 //// alloc is required in no_std
 #![cfg_attr(not(feature = "std"), feature(alloc))]
 
@@ -103,11 +104,12 @@
 #[macro_use]
 extern crate alloc;
 #[cfg(feature = "std")]
-extern crate std as alloc;
-
-#[cfg(feature = "std")]
 #[macro_use]
-extern crate core;
+extern crate sgx_tstd as std;
+
+// #[cfg(feature = "std")]
+// #[macro_use]
+// extern crate core;
 
 #[cfg(test)]
 extern crate wabt;
@@ -121,10 +123,15 @@ extern crate memory_units as memory_units_crate;
 extern crate parity_wasm;
 
 #[allow(unused_imports)]
+#[cfg(not(feature = "std"))]
 use alloc::prelude::*;
 use core::fmt;
 #[cfg(feature = "std")]
 use std::error;
+
+#[cfg(feature = "std")]
+use std::prelude::v1::*;
+
 
 #[cfg(not(feature = "std"))]
 extern crate libm;
