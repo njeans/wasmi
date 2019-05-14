@@ -13,10 +13,11 @@ exclude = [ "/res/*", "/tests/*", "/fuzz/*", "/benches/*" ]
 [dependencies]
 wasmi-validation = { version = "0.1", path = "validation", default-features = false }
 parity-wasm = { git = "https://github.com/enigmampc/parity-wasm.git", branch = "enigma", default-features = false }
-hashbrown = { version = "0.1.8", optional = true }
+hashbrown = { version = "0.3.0", optional = true }
 memory_units = "0.3.0"
 libm = { version = "0.1.2", optional = true }
-byteorder = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.4" }
+
+sgx_tstd = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.7", optional = true }
 
 
 [dev-dependencies]
@@ -27,10 +28,11 @@ wabt = "0.6"
 [features]
 default = ["std"]
 # Disable for no_std support
-std = [
-    "parity-wasm/std",
-    "wasmi-validation/std",
-]
+std = ["wasmi-validation/std", "sgx_tstd"]
+#std = [
+#    "parity-wasm/std",
+#    "wasmi-validation/std",
+#]
 # Enable for no_std support
 # hashbrown only works on no_std
 core = [
@@ -39,6 +41,6 @@ core = [
     "libm"
 ]
 
-[workspace]
-members = ["validation"]
-exclude = ["benches"]
+#[workspace]
+#members = ["validation"]
+#exclude = ["benches"]

@@ -8,7 +8,7 @@ use Trap;
 #[cfg(not(feature = "std"))]
 use hashbrown::HashMap;
 #[cfg(feature = "std")]
-use std::collections::HashMap;
+use alloc::collections::HashMap;
 
 use core::cell::Ref;
 use func::{FuncBody, FuncInstance, FuncRef};

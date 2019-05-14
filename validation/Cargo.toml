@@ -8,15 +8,18 @@ repository = "https://github.com/paritytech/wasmi"
 description = "Wasm code validator"
 
 [dependencies]
-parity-wasm = { version = "0.31", default-features = false }
-hashbrown = { version = "0.1.8", optional = true }
+parity-wasm = { git = "https://github.com/enigmampc/parity-wasm.git", branch = "enigma", default-features = false }
+hashbrown = { version = "0.3.0", optional = true }
+sgx_tstd = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.7", optional = true }
+
+
 
 [dev-dependencies]
 assert_matches = "1.1"
 
 [features]
 default = ["std"]
-std = ["parity-wasm/std"]
+std = ["sgx_tstd"]
 core = [
     "hashbrown/nightly"
 ]

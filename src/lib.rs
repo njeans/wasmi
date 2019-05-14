@@ -95,19 +95,22 @@
 //! ```
 
 #![warn(missing_docs)]
-#![cfg_attr(not(feature = "std"), no_std)]
+//#![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 //// alloc is required in no_std
 #![cfg_attr(not(feature = "std"), feature(alloc, alloc_prelude))]
 
 #[cfg(not(feature = "std"))]
 #[macro_use]
 extern crate alloc;
-#[cfg(feature = "std")]
-extern crate std as alloc;
 
 #[cfg(feature = "std")]
 #[macro_use]
-extern crate core;
+extern crate sgx_tstd as alloc;
+
+//#[cfg(feature = "std")]
+//#[macro_use]
+//extern crate core;
 
 #[cfg(test)]
 extern crate assert_matches;
@@ -125,7 +128,7 @@ extern crate wasmi_validation as validation;
 use alloc::prelude::v1::*;
 use core::fmt;
 #[cfg(feature = "std")]
-use std::error;
+use alloc::error;
 
 #[cfg(not(feature = "std"))]
 extern crate libm;

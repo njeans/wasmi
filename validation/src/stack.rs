@@ -3,7 +3,7 @@ use alloc::prelude::v1::*;
 
 use core::fmt;
 #[cfg(feature = "std")]
-use std::error;
+use alloc::error;
 
 #[derive(Debug)]
 pub struct Error(String);

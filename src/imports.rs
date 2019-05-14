@@ -4,7 +4,7 @@ use alloc::prelude::v1::*;
 #[cfg(not(feature = "std"))]
 use hashbrown::HashMap;
 #[cfg(feature = "std")]
-use std::collections::HashMap;
+use alloc::collections::HashMap;
 
 use func::FuncRef;
 use global::GlobalRef;

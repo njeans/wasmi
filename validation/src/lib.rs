@@ -1,7 +1,8 @@
 // TODO: Uncomment
 // #![warn(missing_docs)]
 
-#![cfg_attr(not(feature = "std"), no_std)]
+//#![cfg_attr(not(feature = "std"), no_std)]
+#![no_std]
 //// alloc is required in no_std
 #![cfg_attr(not(feature = "std"), feature(alloc, alloc_prelude))]
 
@@ -9,7 +10,8 @@
 #[macro_use]
 extern crate alloc;
 #[cfg(feature = "std")]
-extern crate std as alloc;
+#[macro_use]
+extern crate sgx_tstd as alloc;
 
 pub mod stack;
 
@@ -25,12 +27,12 @@ pub const LINEAR_MEMORY_MAX_PAGES: u32 = 65536;
 use alloc::prelude::v1::*;
 use core::fmt;
 #[cfg(feature = "std")]
-use std::error;
+use alloc::error;
 
 #[cfg(not(feature = "std"))]
 use hashbrown::HashSet;
 #[cfg(feature = "std")]
-use std::collections::HashSet;
+use alloc::collections::HashSet;
 
 use self::context::ModuleContextBuilder;
 use parity_wasm::elements::{
