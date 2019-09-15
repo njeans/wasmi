@@ -10,7 +10,7 @@ description = "Wasm code validator"
 [dependencies]
 parity-wasm = { git = "https://github.com/enigmampc/parity-wasm.git", branch = "enigma", default-features = false }
 hashbrown = { version = "0.3.0", optional = true }
-sgx_tstd = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.8", optional = true }
+sgx_tstd = { git = "https://github.com/baidu/rust-sgx-sdk.git", rev = "v1.0.9", optional = true }
 
 
 
