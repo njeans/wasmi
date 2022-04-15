@@ -19,7 +19,7 @@ parity-wasm = { git = "https://github.com/enigmampc/parity-wasm.git", branch = "
 hashmap_core = { package = "hashbrown", default-features = false, optional = true }
 memory_units = "0.3.0"
 libm = { version = "0.1.2", optional = true }
-byteorder = { git = "https://github.com/baidu/rust-sgx-sdk.git", default-features = false, rev = "v1.0.4" }
+byteorder = { git = "https://github.com/mesalock-linux/byteorder-sgx" }
 
 
 [dev-dependencies]
